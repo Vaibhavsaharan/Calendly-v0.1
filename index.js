@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 
-
 const app = express();
 
 // Serve static files from the React app
@@ -10,7 +9,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 // Put all API endpoints under '/api'
 app.get('/api/hello', (req, res) => {
   // Return them as json
-  res.json({message : "Hello World"});
+  res.json({message : "Connected to backend"});
 });
 
 // The "catchall" handler: for any request that doesn't
