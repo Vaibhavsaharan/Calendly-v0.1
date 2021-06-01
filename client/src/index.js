@@ -1,12 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { StyleReset } from 'atomize';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider as StyletronProvider, DebugEngine } from "styletron-react";
+import { Client as Styletron } from "styletron-engine-atomic";
+import {
+  BrowserRouter as Router
+} from "react-router-dom";
+import { Provider } from 'react-redux';
+import {store , persistor} from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react'
+
+const debug =
+  process.env.NODE_ENV === "production" ? void 0 : new DebugEngine();
+
+// 1. Create a client engine instance
+const engine = new Styletron();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <StyletronProvider value={engine} debug={debug} debugAfterHydration>  
+        <StyleReset />
+          <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+              <App />  
+            </PersistGate>
+          </Provider> 
+      </StyletronProvider>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
