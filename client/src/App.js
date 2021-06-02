@@ -5,7 +5,6 @@ import HomeBody from './pages/homePage/homeBody';
 import {
   BrowserRouter as Router, Route
 } from "react-router-dom";
-import BookingBody from './pages/bookingPage/bookingBody';
 
 function App() {
     return (

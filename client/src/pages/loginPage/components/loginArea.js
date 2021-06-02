@@ -1,6 +1,6 @@
-import React, {useState, useEffect, useContext} from 'react';
-import { useDispatch, useSelector, ReactReduxContext,  } from "react-redux";
-import {getUser, createUser} from '../../../redux/actions/userActions';
+import React, {useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import {getUser} from '../../../redux/actions/userActions';
 import { Row, Col, Div , Text, Input, Button} from 'atomize';
 import { useHistory } from "react-router-dom";
 
@@ -10,7 +10,6 @@ function LoginArea() {
     const history = useHistory();
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
-    const { store } = useContext(ReactReduxContext)
     if(user.email === inputEmail){
         navigateToHome()
     }

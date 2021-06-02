@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Div , Text, Input, Button} from 'atomize';
+import { Div} from 'atomize';
 import LoginArea from './components/loginArea'
 
 class LoginBody extends Component {

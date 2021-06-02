@@ -20,7 +20,6 @@ function BookingBody() {
     event_type : "60b3a6846226934aa60c00f2"
   };
   const [newEvent, setNewEvent] = useState(initialEventState);
-  const [submitted, setSubmitted] = useState(false);
 
 
   const dispatch = useDispatch();

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col, Div ,Text, Button, Icon} from 'atomize';
 import {
@@ -18,7 +18,7 @@ function HomeBody() {
   const dispatch = useDispatch();
   useEffect(() =>{
     dispatch(getAllEvents(user._id))
-  },[])
+  },[user._id, dispatch])
     return (
       <Router>
         <Div d="flex" h="100vh" w="100vw" flexDir="column" > 
