@@ -11,14 +11,13 @@ import {getAllEvents} from '../../redux/actions/eventsAction';
 import BookingBody from '../bookingPage/bookingBody';
 import Moment from 'react-moment';
 
+
 function HomeBody() {
   const events = useSelector(state => state.events);
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
   useEffect(() =>{
-    console.log('fetchin', user._id)
     dispatch(getAllEvents(user._id))
-    console.log(events)
   },[])
     return (
       <Router>
